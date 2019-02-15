@@ -56,7 +56,7 @@ h1 {
 }
 
 .grocery input:checked + label:before {
-  content: '√';
+  content: '🌮';
 }
 
 .add-items {

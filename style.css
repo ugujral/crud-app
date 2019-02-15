@@ -69,6 +69,13 @@ h1 {
   border: 1px solid rgba(0,0,0,0.1);
 }
 
+.removeItems {
+  padding: 10px;
+  outline: 0;
+  border: 1px solid rgba(0,0,0,0.1);
+  margin-top: 10px;
+}
+
 .recipe {
   padding: 10px;
   outline: 0;

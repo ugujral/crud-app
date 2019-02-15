@@ -16,13 +16,15 @@
       <input type="text" name="item" placeholder="Item Name" required>
       <input type="submit" value="+ Add Item">
     </form>
+    <button class = "removeItems">Remove All Items</button>
     <button class = "recipe">Generate Recipes</button>
   </div>
 <script>
   const addItems = document.querySelector('.add-items');
   const itemsList = document.querySelector('.grocery');
+  const removeAllItems = document.querySelector('.removeItems');
   const recipeGenerator = document.querySelector('.recipe');
-  const items = [];
+  let items = [];
 
   //Function that adds groceries to items array above
   function addItem(e) {
@@ -37,7 +39,8 @@
     pushtoGroceryTag(items, itemsList); //Runs the function to take items and push them into items array
     localStorage.setItem('items', JSON.stringify(items)); //JSON.stringify to take the input object into a string since localStorage is a set of keys and values 
     this.reset(); //Empties input box so user can add new items
-  }
+  };
+
   //Takes items passed and places into a html list 
   function pushtoGroceryTag(grocery = [], groceryList) { // Important to have empty array to loop over nothing if nothing is passed
     groceryList.innerHTML = grocery.map((grocery, i) => {
@@ -48,9 +51,17 @@
         </li>
       `;
     }).join('');
-  }
+  };
+
+  //Removes all items from list container
+  function removeAll() {
+    localStorage.clear();
+    items = [];
+    document.location.reload()
+  };
 
   addItems.addEventListener('submit', addItem);
+  removeAllItems.addEventListener('click', removeAll);
 
   pushtoGroceryTag(items, itemsList);
 </script>

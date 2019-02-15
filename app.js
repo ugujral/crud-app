@@ -57,7 +57,7 @@ function recipeMaker() {
   for (var i = 0; i < itemsArray.length; i++) {
     for (var j = 0; j < recipeArray.length; j++) {
       if (JSON.stringify(itemsArray[i].text) === JSON.stringify(recipeArray[i].ingredients)) {
-        return 'found';
+        console.log('found')
       }
     }
   }
